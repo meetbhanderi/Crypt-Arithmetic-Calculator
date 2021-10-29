@@ -12,17 +12,16 @@ rframe = Frame(root)
 rframe.grid(pady=10, padx=20, row=7, column=0)
 text = Text(rframe, width=60, height=4)
 
-"""
-   Print a solution to the cryptarithm, if any exists.
-   Arguments are the list of addends and the result of the sum.
-   
-   For example:
-   >>> solve_cryptarithm(['SEND', 'MORE'], 'MONEY')
-   SEND(9567) + MORE(1085) = MONEY(10652)
 
-"""
 def solve_cryptarithm(addends, result):
+        """Print a solution to the cryptarithm, if any exists.
+        Arguments are the list of addends and the result of the sum.
+        For example:
 
+        >>> solve_cryptarithm(['SEND', 'MORE'], 'MONEY')
+        SEND(9567) + MORE(1085) = MONEY(10652)
+
+        """
         letters = ''.join(set(chain(result, *addends)))
         initial_letters = ''.join(set(chain(result[0], (a[0] for a in addends))))
         for perm in permutations(digits, len(letters)):
